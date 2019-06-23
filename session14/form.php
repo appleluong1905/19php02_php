@@ -8,12 +8,14 @@
 </head>
 <body>
 	<?php 
-	$errUserName = $errEmail = $errPassword = '';
+	$errUserName = $errEmail = $errPassword = $errCity = $errGender =  '';
 	$username = $email = $password = '';
 	if (isset($_POST['username'])) {
 		$username = $_POST['username'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
+		$city     = $_POST['city'];
+		$gender   = isset($_POST['gender'])?$_POST['gender']:'';
 		if ($username == '') {
 			$errUserName = 'Please input your username';
 		}
@@ -22,6 +24,12 @@
 		}
 		if ($password == '') {
 			$errPassword = 'Please input your password';
+		}
+		if ($city == '') {
+			$errCity = 'Please choose your city';
+		}
+		if ($gender == '') {
+			$errGender = 'Please choose your gender';
 		}
 	}
 ?>
@@ -41,17 +49,19 @@
 		<p class="error"> <?php echo $errPassword;?></p>
 		<p>Gender
 			<input type="radio" name="gender" value="male"> Male
-			<input type="radio" name="gender" value="female"> Female
+			<input type="radio" name="gender"  value="female"> Female
 		</p>
+		<p class="error"> <?php echo $errGender;?></p>
 		<p>City
 			<select name="city">
 				<option value="">Please choose city</option>
 				<option value="1">Quang Tri</option>
 				<option value="2">Hue</option>
-				<option value="3">Da Nang</option>
+				<option value="3" >Da Nang</option>
 				<option value="4">Quang Nam</option>
 			</select>
 		</p>
+		<p class="error"> <?php echo $errCity;?></p>
 		<p><input type="submit" name="register"></p>
 	</form>
 
