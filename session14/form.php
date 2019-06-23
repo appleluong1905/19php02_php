@@ -9,7 +9,7 @@
 <body>
 	<?php 
 	$errUserName = $errEmail = $errPassword = $errCity = $errGender =  '';
-	$username = $email = $password = '';
+	$username = $email = $password = $gender = $city = '';
 	if (isset($_POST['username'])) {
 		$username = $_POST['username'];
 		$email = $_POST['email'];
@@ -59,10 +59,10 @@
 		<p>City
 			<select name="city">
 				<option value="">Please choose city</option>
-				<option value="1">Quang Tri</option>
-				<option value="2">Hue</option>
-				<option value="3" >Da Nang</option>
-				<option value="4">Quang Nam</option>
+				<option value="1" <?php echo ($city == '1')?'selected':''?>>Quang Tri</option>
+				<option value="2" <?php echo ($city == '2')?'selected':''?>>Hue</option>
+				<option value="3" <?php echo ($city == '3')?'selected':''?>>Da Nang</option>
+				<option value="4" <?php echo ($city == '4')?'selected':''?>>Quang Nam</option>
 			</select>
 		</p>
 		<p class="error"> <?php echo $errCity;?></p>
