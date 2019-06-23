@@ -9,6 +9,7 @@
 <body>
 	<?php 
 	$errUserName = $errEmail = $errPassword = '';
+	$username = $email = $password = '';
 	if (isset($_POST['username'])) {
 		$username = $_POST['username'];
 		$email = $_POST['email'];
