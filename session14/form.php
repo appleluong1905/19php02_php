@@ -39,6 +39,19 @@
 			<input type="password" name="password" value="<?php echo $password;?>">
 		</p>
 		<p class="error"> <?php echo $errPassword;?></p>
+		<p>Gender
+			<input type="radio" name="gender" value="male"> Male
+			<input type="radio" name="gender" value="female"> Female
+		</p>
+		<p>City
+			<select name="city">
+				<option value="">Please choose city</option>
+				<option value="1">Quang Tri</option>
+				<option value="2">Hue</option>
+				<option value="3">Da Nang</option>
+				<option value="4">Quang Nam</option>
+			</select>
+		</p>
 		<p><input type="submit" name="register"></p>
 	</form>
 
