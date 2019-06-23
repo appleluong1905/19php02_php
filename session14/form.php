@@ -48,8 +48,12 @@
 		</p>
 		<p class="error"> <?php echo $errPassword;?></p>
 		<p>Gender
-			<input type="radio" name="gender" value="male"> Male
-			<input type="radio" name="gender"  value="female"> Female
+			<input type="radio" name="gender" value="male" 
+			<?php echo ($gender == 'male')?'checked':''?>
+			> Male
+			<input type="radio" name="gender"  value="female"
+			<?php echo ($gender == 'female')?'checked':''?>
+			> Female
 		</p>
 		<p class="error"> <?php echo $errGender;?></p>
 		<p>City
