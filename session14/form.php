@@ -31,10 +31,15 @@
 		if ($gender == '') {
 			$errGender = 'Please choose your gender';
 		}
+		//console.log();
+		if ($_FILES['avatar']['error'] == 0) {
+			$avatar = $_FILES['avatar']['name'];
+			move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/'.$avatar);
+		}
 	}
 ?>
 	<h1>Register form</h1>
-	<form action="#" method="POST">
+	<form action="#" method="POST" enctype="multipart/form-data">
 		<p>Username
 			<input type="text" name="username" value="<?php echo $username;?>">
 		</p>
@@ -66,6 +71,9 @@
 			</select>
 		</p>
 		<p class="error"> <?php echo $errCity;?></p>
+		<p>Avatar
+			<input type="file" name="avatar">
+		</p>
 		<p><input type="submit" name="register"></p>
 	</form>
 
