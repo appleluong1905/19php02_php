@@ -13,8 +13,44 @@
 		// Khoi tao va gan gia tri mac dinh cac truong
 		$name = $gender = $address = $customer_type = $start_date = $end_date 
 		= $start_number = $end_number = '';
+		// khoi tao thong bao loi cho cac truong
 		$errName = $errGender = $errAddress = $errCustomerType = $errStartDate 
 		= $errEndDate = $errStartNumber = $errEndNumber = '';
+		// khoi tao gia tri check loi
+		$checkSubmit = true;
+
+		function CalNoTax($number) {
+		  if ($number <= 100) {
+				$money = $number*1500;
+			}
+			if ($number > 100 && $number <= 200) {
+				$money = 100*1500 + ($number-100)*2000;
+			}
+			//ex 220
+			if ($number > 200) {
+				$money = 100*1500 + ($number-100)*2000 + ($number-200)*3500;
+			}
+
+			return $money;
+		}
+		function Cal($number, $customer_type) {
+			$money = 0;
+			switch ($customer_type) {
+				case '1':
+					$money = CalNoTax($number);
+					$money = $money*(100 + 10)/100;
+					break;
+				case '2':
+					$money = CalNoTax($number);
+					$money = $money*(100 + 12)/100;
+					break;
+				case '3':
+					$money = CalNoTax($number);
+					$money = $money*(100 + 15)/100;
+					break;
+			}
+			return number_format($money,0,",",".");;
+		}
 		if (isset($_POST['submit'])) {
 			$name = $_POST['name'];
 			$gender = isset($_POST['gender'])?$_POST['gender']:'';
@@ -26,35 +62,49 @@
 			$end_number = $_POST['end_number'];
 			if ($name == '') {
 				$errName = 'Please input name';
+				$checkSubmit = false;
 			}
 			if ($gender == '') {
 				$errGender = 'Please choose gender';
+				$checkSubmit = false;
 			}
 			if ($address == '') {
 				$errAddress = 'Please input address';
+				$checkSubmit = false;
 			}
 			if ($customer_type == '') {
 				$errCustomerType = 'Please choose customer type';
+				$checkSubmit = false;
 			}
 			if ($start_date == '') {
 				$errStartDate = 'Please input start date';
+				$checkSubmit = false;
 			}
 			if ($end_date == '') {
 				$errEndDate = 'Please input end date';
+				$checkSubmit = false;
 			}
 			if ($end_date < $start_date) {
 				$errStartDate = 'The last day must be bigger than the first day';
 				$errEndDate = 'The last day must be bigger than the first day';
+				$checkSubmit = false;
 			}
 			if ($start_number == '') {
 				$errStartNumber = 'Please input start number';
+				$checkSubmit = false;
 			}
 			if ($end_number == '') {
 				$errEndNumber = 'Please input end number';
+				$checkSubmit = false;
 			}
 			if ($end_number < $start_number) {
 				$errStartNumber = 'The last number must be bigger than the first number';
 				$errEndNumber = 'The last number must be bigger than the first number';
+				$checkSubmit = false;
+			}
+			if ($checkSubmit) {
+				// tinh tien dien
+				echo Cal($end_number - $start_number, $customer_type);
 			}
 		}
 	?>
