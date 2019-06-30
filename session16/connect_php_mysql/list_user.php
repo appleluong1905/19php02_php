@@ -1,5 +1,11 @@
 <?php 
-	include 'connect.php';
+	//
+	// require_once 'test_include.php';
+	// require_once 'test_include.php';
+	// require_once 'test_include.php';
+
+	// include, include_once, require, require_once
+	require_once 'connect.php';
 	$sql = "SELECT * FROM users";
 	$listUser = mysqli_query($connect, $sql);
 	?>

@@ -12,7 +12,7 @@
 <body>
 	<?php
 		// Ket noi database
-		include 'connect.php';
+		require_once 'connect.php';
 		// Khoi tao va gan gia tri mac dinh cac truong
 		$name = $gender = $address = $customer_type = $start_date = $end_date 
 		= $start_number = $end_number = '';

@@ -13,7 +13,7 @@
 
   // $sql = "INSERT INTO users(name, gender, customer_type, start_date, end_date, address, start_number, end_number) VALUES ('test name', 'male', 1, '2019-03-01', '2019-06-01', 'DN', 21, 315)";
 
-  
+
   // mysqli_query($connect, $sql);
 
 ?>
