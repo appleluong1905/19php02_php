@@ -29,3 +29,4 @@
 	}
 ?>
 </table>
+<a href="form.php">Add user</a>
