@@ -17,10 +17,12 @@
 			<td>End date</td>
 			<td>Start number</td>
 			<td>End number</td>
+			<td>Action</td>
 		</tr>
 	
 <?php
 	while ($user = $listUser->fetch_assoc()) {
+		$id = $user['id'];
 ?>
 	<tr>
 		<td><?php echo $user['name']?></td>
@@ -29,6 +31,9 @@
 		<td><?php echo $user['end_date']?></td>
 		<td><?php echo $user['start_number']?></td>
 		<td><?php echo $user['end_number']?></td>
+		<td>
+			<a href="#">Edit</a> | <a href="delete_user.php?id=<?php echo $id?>">Delete</a>
+		</td>
 	</tr>
 
 <?php
