@@ -35,7 +35,7 @@
 			<td><?php echo $news['created']?></td>
 			<td><?php echo $news['updated']?></td>
 			<td>
-				<a href="#">Edit</a> | <a href="delete_news.php?id=<?php echo $id;?>">Delete</a>
+				<a href="edit_news.php?id=<?php echo $id;?>">Edit</a> | <a href="delete_news.php?id=<?php echo $id;?>">Delete</a>
 			</td>
 		</tr>
 	<?php
