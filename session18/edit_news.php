@@ -17,6 +17,7 @@
 	$sql = "SELECT * FROM news WHERE id = $id";
 	$editNews = mysqli_query($connect, $sql);
 	$oldNews = $editNews->fetch_assoc();
+	$updated = Date('Y-m-d h:i:s');
 	//
 	if (isset($_POST['edit_news'])) {
 		$title = $_POST['title'];
@@ -27,7 +28,7 @@
 			$image = $_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/'.$image);
 		}
-		$sql = "UPDATE news SET title = '$title', description = '$description', image = '$image' WHERE id = $id";
+		$sql = "UPDATE news SET title = '$title', description = '$description', image = '$image', updated = '$updated' WHERE id = $id";
 		//
 		if (mysqli_query($connect, $sql) === TRUE) {
 			header('Location: list_news.php');
