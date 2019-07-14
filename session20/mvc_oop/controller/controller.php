@@ -19,6 +19,10 @@
 					break;
 				case 'user':
 					# code...
+					//
+					$model = new Model();
+					$listUser = $model->getListUser();
+
 					// dang o trang list user
 					include 'view/user/list_user.php';
 					break;

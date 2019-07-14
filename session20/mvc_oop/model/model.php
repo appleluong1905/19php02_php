@@ -7,5 +7,10 @@
 
 			return mysqli_query($this->connect(), $sql);
 		}
+
+		function getListUser() {
+			$sql = "SELECT * FROM users";
+			return mysqli_query($this->connect(), $sql);
+		}
 	}
 ?>
