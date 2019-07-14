@@ -38,6 +38,14 @@
 					}
 					include 'view/user/add_user.php';
 					break;
+				case 'delete_user':
+						$id = $_GET['id'];
+						$model = new Model();
+					  if ($model->deleteUser($id) === TRUE) {
+							header("Location: index.php?action=user");
+						}	
+						# code...
+						break;
 				default:
 					# code...
 					break;

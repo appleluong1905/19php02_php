@@ -12,5 +12,9 @@
 			$sql = "SELECT * FROM users";
 			return mysqli_query($this->connect(), $sql);
 		}
+		function deleteUser($id) {
+			$sql = "DELETE FROM users WHERE id = $id";
+			return mysqli_query($this->connect(), $sql);
+		}
 	}
 ?>
