@@ -1,4 +1,5 @@
 <?php 
+	include 'model/model.php';
 	class Controller {
 
 		function handleRequest() {
@@ -26,7 +27,10 @@
 					if (isset($_POST['add_user'])) {
 						$username = $_POST['username'];
 						$password = $_POST['password'];
-						echo $username;
+						$model = new Model();
+						if ($model->addUser($username, $password) === TRUE) {
+							header("Location: index.php?action=user");
+						}	
 					}
 					include 'view/user/add_user.php';
 					break;
