@@ -46,6 +46,21 @@
 						}	
 						# code...
 						break;
+				case 'edit_user':
+						# code...
+						$id = $_GET['id'];
+						$model = new Model();
+						$editUser = $model->getUserById($id);
+						$editUser = $editUser->fetch_assoc();
+						if (isset($_POST['edit_user'])) {
+							$username = $_POST['username'];
+							$model = new Model();
+							if ($model->editUser($id, $username) === TRUE) {
+								header("Location: index.php?action=user");
+							}	
+						}
+						include 'view/user/edit_user.php';
+						break;
 				default:
 					# code...
 					break;
