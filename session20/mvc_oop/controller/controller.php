@@ -18,7 +18,17 @@
 					break;
 				case 'user':
 					# code...
-					echo "<p>Ban dang o trang user</p>";
+					// dang o trang list user
+					include 'view/user/list_user.php';
+					break;
+				case 'add_user':
+					# code...
+					if (isset($_POST['add_user'])) {
+						$username = $_POST['username'];
+						$password = $_POST['password'];
+						echo $username;
+					}
+					include 'view/user/add_user.php';
 					break;
 				default:
 					# code...
