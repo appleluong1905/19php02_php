@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,13 @@
 			<li><a href='index.php?controller=front&action=home'>Home</a></li>
 			<li><a href='index.php?controller=news&action=list_news'>News</a></li>
 			<li><a href='index.php?controller=products&action=list_products'>Product</a></li>
-			<li><a href='index.php?controller=users&action=login'>Login</a></li>
-			<li><a href='index.php?controller=users&action=register'>Register</a></li>
+			<?php if(isset($_SESSION['username'])){?>
+			<li class="logout">Hi, <?php echo $_SESSION['username'];?>
+			<a href='index.php?controller=users&action=logout'>Logout</a></li>
+			<?php  }else{ ?>
+				<li><a href='index.php?controller=users&action=login'>Login</a></li>
+				<li><a href='index.php?controller=users&action=register'>Register</a></li>
+			<?php }?>
 		</ul>
 	</nav>
 	<?php
