@@ -9,9 +9,9 @@
 	<h1>Frontend website</h1>
 	<nav id="nav">
 		<ul>
-			<li><a href='index.php?controller=front&action=home'>Home</a></li>
+			<li ><a href='index.php?controller=front&action=home'>Home</a></li>
 			<li><a href='index.php?controller=news&action=list_news'>News</a></li>
-			<li><a href='index.php?controller=products&action=list_products'>Product</a></li>
+			<li class="active"><a href='index.php?controller=products&action=list_products'>Product</a></li>
 			<?php if(isset($_SESSION['username'])){?>
 			<li class="logout">Hi, <?php echo $_SESSION['username'];?>
 			<a href='index.php?controller=users&action=logout'>Logout</a></li>

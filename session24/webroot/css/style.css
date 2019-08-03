@@ -17,3 +17,9 @@ ul li a {
 li.logout {
 	width: 150px;
 }
+li.active {
+	background-color: green;
+}
+li.active a {
+	color: #fff;
+}
