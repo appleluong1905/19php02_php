@@ -56,12 +56,17 @@
 					break;
 				case 'register':
 					# code...
+					$errRegister = '';
 					if (isset($_POST['register'])) {
 						$username = $_POST['username'];
 						$password = $_POST['password'];
 
 						if($frontModel->register($username, $password) === TRUE) {
+							// Cho phep dang nhap khi dang ky thanh cong!
+							$_SESSION['username'] = $username;
 							$libs->redirectPage('index.php?controller=front&action=home');
+						} else {
+								$errRegister = 'Username exist!';
 						}
 					}
 					include 'view/users/register.php';
