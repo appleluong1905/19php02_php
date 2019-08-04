@@ -1,4 +1,7 @@
-<?php include 'view/elements/header.php';?>
+<?php
+ include 'view/elements/header.php';
+ include 'controller/backend_controller.php';
+?>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -90,13 +93,6 @@
         <li><a href="#">Examples</a></li>
         <li class="active">Blank page</li>
       </ol>
-      <?php 
-        if(isset($_SESSION['username']) && !is_null($_SESSION['username'])){
-          echo 'Duoc su dung backend';
-        } else {
-          header('Location: index.php');
-        }
-      ?>
     </section>
 
     <!-- Main content -->
@@ -116,13 +112,15 @@
           </div>
         </div>
         <div class="box-body">
-          Start creating your amazing application!
+        <?php 
+          if(isset($_SESSION['username']) && !is_null($_SESSION['username'])){
+            $backend = new BackendController();
+            $backend->handleRequest();
+          } else {
+            header('Location: index.php');
+          }
+        ?>
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
       </div>
       <!-- /.box -->
 
