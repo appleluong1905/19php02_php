@@ -4,5 +4,6 @@
 		<h2><?php echo $detailProduct['name']?></h2>
 		<p><?php echo $detailProduct['price']?> VND</p>
 		<img src="webroot/uploads/products/<?php echo $detailProduct['image']?>">
+		<a href="index.php?controller=products&action=buy&id=<?php echo $detailProduct['id']?>">BUY NOW</a>
 </div>
 </div>
