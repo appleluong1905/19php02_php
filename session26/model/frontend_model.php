@@ -33,5 +33,11 @@
 			return mysqli_query($this->connect(), $sql);
 		}
 
+		function getProductDetail($id) {
+			$sql = "SELECT * FROM products WHERE id = $id";
+			return mysqli_query($this->connect(), $sql);
+		}
+
+
 	}
 ?>

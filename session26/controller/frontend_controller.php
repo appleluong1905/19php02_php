@@ -42,7 +42,13 @@
 				  $listProduct = $frontModel->getProductList();
 				  include 'view/products/list_product_frontend.php';
 					break;
-				
+				case 'product_detail':
+					$id = $_GET['id'];
+					$detailProduct = $frontModel->getProductDetail($id);
+					$detailProduct = $detailProduct->fetch_assoc();
+					include 'view/products/detail_product_frontend.php';
+					# code...
+					break;
 				default:
 					# code...
 					break;
