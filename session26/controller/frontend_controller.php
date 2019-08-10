@@ -36,7 +36,17 @@
 		}
 
 		function handleProduct($action, $frontModel, $libs){
-			
+			switch ($action) {
+				case 'list_products':
+					# code...
+				  $listProduct = $frontModel->getProductList();
+				  include 'view/products/list_product_frontend.php';
+					break;
+				
+				default:
+					# code...
+					break;
+			}
 		}
 
 		function handleUsers($action, $frontModel, $libs){

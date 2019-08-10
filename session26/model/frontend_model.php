@@ -28,5 +28,10 @@
 			
 		}
 
+		function getProductList() {
+			$sql = "SELECT * FROM products";
+			return mysqli_query($this->connect(), $sql);
+		}
+
 	}
 ?>
