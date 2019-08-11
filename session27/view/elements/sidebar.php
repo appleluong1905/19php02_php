@@ -48,6 +48,7 @@
           <ul class="treeview-menu">
             <li><a href="admin.php?controller=products&action=add"><i class="fa fa-circle-o"></i> Add product</a></li>
             <li><a href="admin.php?controller=products&action=list_product"><i class="fa fa-circle-o"></i> List products</a></li>
+            <li><a href="admin.php?controller=comments&action=list_comment"><i class="fa fa-circle-o"></i> List comments</a></li>
           </ul>
         </li>
       </ul>

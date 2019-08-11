@@ -25,6 +25,9 @@
 				case 'users':
 					$this->handleUsers($action, $backModel, $libs);
 					break;
+				case 'comments':
+					$this->handleComments($action, $backModel, $libs);
+					break;
 				default:
 					# code...
 					break;
@@ -62,6 +65,24 @@
 		}
 		function handleDashboard($action, $backModel, $libs) {
 
+		}
+		function handleComments($action, $backModel, $libs) {
+			switch ($action) {
+					case 'list_comment':
+						$listComment = $backModel->getCommentList();
+						include 'view/comments/list_comment.php';
+						break;
+					case 'approve':
+						$id = $_GET['id'];
+						if ($backModel->approveComment($id) === TRUE) {
+							$libs->redirectPage('admin.php?controller=comments&action=list_comment');
+						}
+						# code...
+						break;
+					default:
+						# code...
+						break;
+				}	
 		}
   }
 ?>
