@@ -28,7 +28,8 @@
 
 	</div>
 	<div class="comment_content">
-		<form action="index.php?controller=comment&action=add&prduct_id=<?php echo $detailProduct['id']?>" method="POST">
+		<form action="index.php?controller=comment&action=add" method="POST">
+			<input type="hidden" name="product_id" value="<?php echo $detailProduct['id']?>">
 			<textarea cols="40" rows="6" name="content"></textarea>
 			<p>
 				<input type="submit" name="comment" value="Comment">

@@ -115,10 +115,10 @@
 		function handleComment($action, $frontModel, $libs) {
 			switch ($action) {
 				case 'add':
-					$productId = $_GET['prduct_id'];
 					if (isset($_POST['comment'])) {
 						if (isset($_SESSION['login'])) {
 							$content = $_POST['content'];
+							$productId = $_POST['product_id'];
 							$users = $frontModel->getUserID($_SESSION['login']['username']);
 							$userId = $users->fetch_assoc();
 							$userId = $userId['id'];
