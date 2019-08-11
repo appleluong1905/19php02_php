@@ -14,7 +14,7 @@
 
 			switch ($controller) {
 				case 'dashboard':
-					$this->handleFront($action, $backModel, $libs);
+					$this->handleDashboard($action, $backModel, $libs);
 					break;
 				case 'news':
 					$this->handleNews($action, $backModel, $libs);
@@ -59,6 +59,9 @@
 					# code...
 					break;
 			}
+		}
+		function handleDashboard($action, $backModel, $libs) {
+
 		}
   }
 ?>

@@ -54,7 +54,7 @@
 		function getCommentList($product_id) {
 			$sql = "SELECT * FROM comments
 			INNER JOIN users ON comments.user_id = users.id 
-			WHERE product_id = $product_id";
+			WHERE product_id = $product_id AND status = 0";
 			return mysqli_query($this->connect(), $sql);
 		}
 
