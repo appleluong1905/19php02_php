@@ -25,6 +25,9 @@
 				case 'users':
 					$this->handleUsers($action, $frontModel, $libs);
 					break;
+				case 'comment':
+					$this->handleComment($action, $frontModel, $libs);
+					break;
 				default:
 					# code...
 					break;
@@ -46,6 +49,8 @@
 					$id = $_GET['id'];
 					$detailProduct = $frontModel->getProductDetail($id);
 					$detailProduct = $detailProduct->fetch_assoc();
+					// get comment cua product ra
+					$commentList = $frontModel->getCommentList($id);
 					include 'view/products/detail_product_frontend.php';
 					# code...
 					break;
@@ -107,5 +112,30 @@
 			
 		}
 
+		function handleComment($action, $frontModel, $libs) {
+			switch ($action) {
+				case 'add':
+					$productId = $_GET['prduct_id'];
+					if (isset($_POST['comment'])) {
+						if (isset($_SESSION['login'])) {
+							$content = $_POST['content'];
+							$users = $frontModel->getUserID($_SESSION['login']['username']);
+							$userId = $users->fetch_assoc();
+							$userId = $userId['id'];
+							if ($frontModel->addComment($productId, $userId, $content) === TRUE) {
+								$libs->redirectPage("index.php?controller=products&action=product_detail&id=$productId");
+							}
+						} else {
+							$libs->redirectPage("index.php?controller=users&action=login");
+						}
+						
+					}
+					break;
+				
+				default:
+					# code...
+					break;
+			}
+		}
 	}
 ?>

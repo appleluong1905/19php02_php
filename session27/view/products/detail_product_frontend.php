@@ -9,33 +9,27 @@
 </div>
 <div class="comment">
 	<div class="comment_list">
+	<?php
+		if ($commentList->num_rows > 0){
+			while ($comment = $commentList->fetch_assoc()) {
+	  	$id = $comment['id'];
+ 	?>
 		<div class="comment_detail">
-			<div class="comment_author">Chad</div>
-			<div class="comment_connent_detail">Chào anh !
-Anh cho em hỏi anh đã đủ 20-60 tuổi chưa và đang có những giấy tờ gì như CMND, Hộ khẩu, Bằng lái xe, Hóa đơn điện và số tiền muốn đưa trước, số tháng anh muốn góp để em tìm gói trả góp phù hợp cho anh nha. 
-Mong nhận được phản hồi từ anh.</div>
-			<div class="comment_time">15:00:01 11/08/2019</div>
+			<div class="comment_author"><?php echo $comment['username']?></div>
+			<div class="comment_connent_detail"><?php echo $comment['content']?></div>
+			<div class="comment_time"><?php echo $comment['created']?></div>
 		</div>
+	<?php }?>
+	<?php }else {?>
+		<div class="comment_detail">
+			<p>No comment</p>
+		</div>
+	<?php }?>
 
-		<div class="comment_detail">
-			<div class="comment_author">Peter</div>
-			<div class="comment_connent_detail">Chào anh !
-Anh cho em hỏi anh đã đủ 20-60 tuổi chưa và đang có những giấy tờ gì như CMND, Hộ khẩu, Bằng lái xe, Hóa đơn điện và số tiền muốn đưa trước, số tháng anh muốn góp để em tìm gói trả góp phù hợp cho anh nha. 
-Mong nhận được phản hồi từ anh.</div>
-			<div class="comment_time">16:00:01 11/08/2019</div>
-		</div>
-
-		<div class="comment_detail">
-			<div class="comment_author">Rooney</div>
-			<div class="comment_connent_detail">Chào anh !
-Anh cho em hỏi anh đã đủ 20-60 tuổi chưa và đang có những giấy tờ gì như CMND, Hộ khẩu, Bằng lái xe, Hóa đơn điện và số tiền muốn đưa trước, số tháng anh muốn góp để em tìm gói trả góp phù hợp cho anh nha. 
-Mong nhận được phản hồi từ anh.</div>
-			<div class="comment_time">11:00:01 11/08/2019</div>
-		</div>
 	</div>
 	<div class="comment_content">
-		<form action="#" method="POST">
-			<textarea cols="40" rows="6"></textarea>
+		<form action="index.php?controller=comment&action=add&prduct_id=<?php echo $detailProduct['id']?>" method="POST">
+			<textarea cols="40" rows="6" name="content"></textarea>
 			<p>
 				<input type="submit" name="comment" value="Comment">
 			</p>

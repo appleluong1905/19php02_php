@@ -47,3 +47,6 @@ li.active a {
 .comment_author, .comment_time {
 	margin: 10px 0;
 }
+.comment_detail {
+	border-bottom: 1px dotted black;
+}
