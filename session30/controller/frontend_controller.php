@@ -83,6 +83,7 @@
 						break;	
 				case 'cart':
 						$listID = $_SESSION['cart'];
+						// Chuyen id thanh mang de query. Ex: (2,5,4);
 						$id = "(";
 						$i = 1;
 						foreach($listID as $listIDProduct){
