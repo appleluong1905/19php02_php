@@ -54,6 +54,7 @@
 					$totalRecord = $totalRecord->fetch_assoc();
 					$totalRecord = $totalRecord['total'];
 					$numberPage = ceil($totalRecord/$limit);
+
 				  $listProduct = $frontModel->getProductList($start, $limit);
 				  include 'view/products/list_product_frontend.php';
 					break;
@@ -74,6 +75,16 @@
 					include 'view/products/detail_product_frontend.php';
 					# code...
 					break;
+				case 'buy':
+						$id = $_GET['id'];
+						$_SESSION['cart'][$id] = $id;
+						$libs->redirectPage('index.php?controller=products&action=cart');
+						# code...
+						break;	
+				case 'cart':
+						include 'view/products/cart.php';
+						# code...
+						break;		
 				default:
 					# code...
 					break;
