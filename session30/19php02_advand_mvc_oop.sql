@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 24, 2019 at 04:38 PM
+-- Generation Time: Sep 07, 2019 at 05:10 PM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.2.20-2+ubuntu16.04.1+deb.sury.org+1
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `19php02_advand_mvc_oop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carts`
+--
+
+CREATE TABLE `carts` (
+  `id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart_details`
+--
+
+CREATE TABLE `cart_details` (
+  `id` int(10) NOT NULL,
+  `cart_id` int(10) NOT NULL,
+  `product_id` int(10) NOT NULL,
+  `quantity` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -75,7 +100,8 @@ INSERT INTO `products` (`id`, `name`, `image`, `price`) VALUES
 (1, 'Chad', 'register_login_widget.jpg', 777),
 (2, 'Manchester', '68836012_1284705881691218_6124324829509189632_n.jpg', 888),
 (3, 'Chad', 'default.png', 777),
-(4, 'Oman', '20170322152052-nng-sut-lua.jpg', 7777);
+(4, 'Oman', '20170322152052-nng-sut-lua.jpg', 7777),
+(5, 'Oman', '20170322152052-nng-sut-lua.jpg', 7777);
 
 -- --------------------------------------------------------
 
@@ -100,7 +126,8 @@ INSERT INTO `rates` (`id`, `product_id`, `user_id`, `rate_value`, `created`) VAL
 (2, 1, 14, 4, '2019-08-24 04:28:23'),
 (3, 1, 16, 4, '2019-08-24 04:28:52'),
 (4, 1, 18, 2, '2019-08-24 04:32:47'),
-(5, 1, 19, 4, '2019-08-24 04:37:07');
+(5, 1, 19, 4, '2019-08-24 04:37:07'),
+(6, 1, 20, 2, '2019-08-24 04:39:11');
 
 -- --------------------------------------------------------
 
@@ -127,11 +154,24 @@ INSERT INTO `users` (`id`, `role`, `username`, `password`) VALUES
 (16, 'admin', '8888', '123123123123'),
 (17, 'admin', '88882', '123123123123'),
 (18, 'customer', '111', '123123123123'),
-(19, 'customer', '222', '123123123123');
+(19, 'customer', '222', '123123123123'),
+(20, 'admin', '333', '123123123123');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `carts`
+--
+ALTER TABLE `carts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cart_details`
+--
+ALTER TABLE `cart_details`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `comments`
@@ -162,6 +202,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `carts`
+--
+ALTER TABLE `carts`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `cart_details`
+--
+ALTER TABLE `cart_details`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
@@ -170,17 +220,17 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `rates`
 --
 ALTER TABLE `rates`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
