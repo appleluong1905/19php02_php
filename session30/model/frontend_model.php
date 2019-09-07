@@ -78,5 +78,10 @@
 			$sql = "SELECT count(*) as total FROM products";
 			return mysqli_query($this->connect(), $sql);
 		}
+
+		function getCart($id) {
+			$sql = "SELECT * FROM products WHERE id in $id";
+			return mysqli_query($this->connect(), $sql);
+		}
 	}
 ?>

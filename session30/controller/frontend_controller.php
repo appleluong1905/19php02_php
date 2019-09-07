@@ -82,9 +82,26 @@
 						# code...
 						break;	
 				case 'cart':
+						$listID = $_SESSION['cart'];
+						$id = "(";
+						$i = 1;
+						foreach($listID as $listIDProduct){
+							$id .= $listIDProduct;
+							if ($i < count($listID)) $id .= ',';
+						  $i++;
+						}
+						$id .= ')';
+						
+						$myCart = $frontModel->getCart($id);
 						include 'view/products/cart.php';
 						# code...
-						break;		
+						break;	
+				case 'removeCart':
+						# code...
+						$id = $_GET['id'];
+						unset($_SESSION['cart'][$id]);
+						$libs->redirectPage('index.php?controller=products&action=cart');
+						break;			
 				default:
 					# code...
 					break;
