@@ -12,7 +12,9 @@
 <?php }?>
 </div>
 <div class="paging">
-	<a href="index.php?controller=products&action=list_products&page=1">1</a>
-	<a href="index.php?controller=products&action=list_products&page=2">2</a>
-	<a href="index.php?controller=products&action=list_products&page=3">3</a>
+<?php if ($numberPage > 1) {?>
+	<?php for($i = 1; $i <= $numberPage; $i++){?>
+		<a href="index.php?controller=products&action=list_products&page=<?php echo $i?>"><?php echo $i?></a>
+	<?php }?>
+<?php }?>
 </div>

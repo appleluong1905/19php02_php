@@ -49,6 +49,11 @@
 					$limit = 2;
 					$page = isset($_GET['page'])?$_GET['page']:$page;
 					$start = ($page - 1) * $limit;
+					// total page
+					$totalRecord = $frontModel->getProductCount();
+					$totalRecord = $totalRecord->fetch_assoc();
+					$totalRecord = $totalRecord['total'];
+					$numberPage = ceil($totalRecord/$limit);
 				  $listProduct = $frontModel->getProductList($start, $limit);
 				  include 'view/products/list_product_frontend.php';
 					break;

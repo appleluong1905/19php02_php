@@ -73,5 +73,10 @@
 			$sql = "SELECT * FROM rates WHERE user_id = $userId AND product_id = $product_id";
 			return mysqli_query($this->connect(), $sql);
 		}
+
+		function getProductCount() {
+			$sql = "SELECT count(*) as total FROM products";
+			return mysqli_query($this->connect(), $sql);
+		}
 	}
 ?>
